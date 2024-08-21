@@ -1,29 +1,96 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #3399ff;
+    color: #fff;
     text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 700px;
+    background-color: #ff9933;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.game-area {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ffcc66;
+    border-radius: 10px;
+}
+
+.player-area, .computer-area {
+    flex: 1;
+    text-align: center;
+}
+
+.player-area h2, .computer-area h2 {
+    margin-bottom: 10px;
+}
+
+.player-move img, .computer-move img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.player-move img.active, .computer-move img.active {
+    border-color: red;
+}
+
+.result-area {
+    flex: 2;
+    text-align: center;
+}
+
+#buttons {
+    margin-bottom: 20px;
 }
 
 #buttons button {
-    font-size: 18px;
+    font-size: 1.2rem;
     padding: 10px 20px;
+    background-color: #ff9933;
+    border: 2px solid white;
+    border-radius: 5px;
     margin: 5px;
     cursor: pointer;
 }
 
-#result {
-    font-size: 24px;
-    margin-top: 20px;
-    font-weight: bold;
+#buttons button:hover {
+    background-color: #ffcc66;
+    color: #ff9933;
 }
 
-#messages {
-    margin-top: 20px;
-    font-size: 18px;
+#next-round, #restart-game {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #fff; 
+    color: #ff9933; 
+    font-size: 1.2em;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#next-round:hover, #restart-game:hover {
+    background-color: #ff9933;
+    color: #fff;
 }
 
 
