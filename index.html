@@ -2,20 +2,38 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Kamień, papier, nożyce</title>
+	<title>Rock, Paper, Scissors</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<div class="container">
-		<h1>Gra w Kamień, Papier, Nożyce</h1>
-        <p>Wybierz swój ruch, klikając na jeden z poniższych przycisków:</p>
-		<div id="buttons">
-			<button id="play-rock">Kamień</button>
-    		<button id="play-paper">Papier</button>
-    		<button id="play-scissors">Nożyce</button>
+		<h1>ROCK, PAPER, SCISSORS</h1>
+		<div class="game-area">
+			<div class="player-area">
+				<h2>PLAYER</h2>
+				<div class="player-move">
+					<img src="images/rock.png" alt="Player Move" id="player-move-image">
+				</div>
+			</div>
+			<div class="result-area">
+				<p id="result-message">Make your move!</p>
+				<p id="result-score">Player 0 - 0 Computer</p>
+			</div>
+			<div class="computer-area">
+				<h2>COMPUTER</h2>
+				<div class="computer-move">
+					<img src="images/rock.png" alt="Computer Move" id="computer-move-image">
+				</div>
+			</div>
 		</div>
-		<div id="result"></div>
-		<div id="messages"></div>
+		<div id="buttons">
+			<button id="play-rock" type="button">ROCK</button>
+    		<button id="play-paper" type="button">PAPER</button>
+    		<button id="play-scissors" type="button">SCISSORS</button>
+		</div>
+		<button id="next-round" type="button">NEXT ROUND</button>
+		<button id="restart-game" type="button">RESTART</button>
+		<div id="history"></div>
 	</div>
 	<script src="js/functions.js"></script>
 	<script src="js/script.js"></script>
