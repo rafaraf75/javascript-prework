@@ -1,7 +1,12 @@
+// Zmienne przechowujące liczbe wygranych
+let playerWins = 0;
+let computerWins =0;
+
 //Funkcja odpowiedzialna za wyczyszczenie wiadomości
 function clearMessages() {
   document.getElementById('messages').innerHTML = '';
 }
+
 // Funkcja do określenia ruchu na podstawie ID
 function getMoveName(argMoveId) {
   if (argMoveId == 1) {
@@ -20,17 +25,18 @@ function getMoveName(argMoveId) {
 function displayResult(argComputerMove, argPlayerMove) {
   printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 
-  if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
+  if ((argPlayerMove == 'kamień' && argComputerMove == 'nożyce') ||
+      (argPlayerMove == 'papier' && argComputerMove == 'kamień') ||
+      (argPlayerMove == 'nożyce' && argComputerMove == 'papier')) {
     printMessage('Ty wygrywasz!');
-  } else if (argComputerMove == 'papier' && argPlayerMove == 'nożyce') {
-    printMessage('Ty wygrywasz!');
-  } else if (argComputerMove == 'nożyce' && argPlayerMove == 'kamień') {
-    printMessage('Ty wygrywasz!');
-  } else if (argComputerMove == argPlayerMove) {
+    playerWins++;
+  } else if (argPlayerMove === argComputerMove) {
     printMessage('Remis!');
   } else {
-    printMessage('Komputer wygrywa!');
+    printMessage('Tym razem przegrywasz :(');
+    computerWins++;
   }
+  document.getElementById('result').innerHTML = 'Gracz: ' + playerWins + ' - Komputer: ' + computerWins;
 }
 
 // Funkcja odpowiedzialna za logikę 
