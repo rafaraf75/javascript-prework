@@ -1,3 +1,7 @@
+//Funkcja odpowiedzialna za wyczyszczenie wiadomości
+function clearMessages() {
+  document.getElementById('messages').innerHTML = '';
+}
 // Funkcja do określenia ruchu na podstawie ID
 function getMoveName(argMoveId) {
   if (argMoveId == 1) {
@@ -24,22 +28,34 @@ function displayResult(argComputerMove, argPlayerMove) {
     printMessage('Ty wygrywasz!');
   } else if (argComputerMove == argPlayerMove) {
     printMessage('Remis!');
-  } else if (argPlayerMove == 'nieznany ruch') {
-    printMessage('Nieznany ruch gracza, spróbuj ponownie.');
   } else {
     printMessage('Komputer wygrywa!');
   }
 }
 
-// Losowanie ruchu komputera
-let randomNumber = Math.floor(Math.random() * 3 + 1);
-let computerMove = getMoveName(randomNumber);
-printMessage('Mój ruch to: ' + computerMove);
+// Funkcja odpowiedzialna za logikę 
+function playGame(playerInput) {
+  clearMessages();
 
-// Wybór ruchu gracza
-let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
+let randomNumber = Math.floor(Math.random() * 3 + 1);
+console.log('Wylosowana liczba to: ' + randomNumber);
+
+let computerMove = getMoveName(randomNumber);
 let playerMove = getMoveName(playerInput);
-printMessage('Twój ruch to: ' + playerMove);
 
 // Określenie wyniku gry
 displayResult(computerMove, playerMove);
+}
+
+// Dodanie nasłuchiwaczy zdarzeń dla przycisków
+document.getElementById('play-rock').addEventListener('click', function() {
+  playGame(1);  // Kamień
+});
+
+document.getElementById('play-paper').addEventListener('click', function() {
+  playGame(2);  // Papier
+});
+
+document.getElementById('play-scissors').addEventListener('click', function() {
+  playGame(3);  // Nożyce
+});
